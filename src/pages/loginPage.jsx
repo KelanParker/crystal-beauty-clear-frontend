@@ -14,7 +14,7 @@ export default function LoginPage() {
         console.log("Email:", email);
         console.log("Password:", password);
 
-        axios.post(import.meta.env.VITE_BACKEND_URL + '/users/login', { email, password }).then((response) => {
+        axios.post(import.meta.env.VITE_BACKEND_URL + '/api/users/login', { email, password }).then((response) => {
             console.log("Login successful:", response.data);
             toast.success("Login successful!");
             localStorage.setItem('token', response.data.token);

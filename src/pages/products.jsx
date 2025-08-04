@@ -7,7 +7,7 @@ export default function AdminProductsPage() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get(import.meta.env.VITE_BACKEND_URL + '/products')
+        axios.get(import.meta.env.VITE_BACKEND_URL + '/api/products')
             .then(response => {
                 setProducts(response.data);
             })
@@ -36,7 +36,7 @@ export default function AdminProductsPage() {
                         <tr key={product.productID || product._id || index} className="text-center border-t cursor-pointer hover:bg-gray-600 hover:text-white">
                             <td className="px-4 py-2">{product.productID || product.productId || "N/A"}</td>
                             <td className="px-4 py-2">{product.name}</td>
-                            <td className="px-4 py-2">{product.labledPrice}</td>
+                            <td className="px-4 py-2">{product.labeledPrice ?? product.labledPrice}</td>
                             <td className="px-4 py-2">{product.price}</td>
                             <td className="px-4 py-2">{product.stock}</td>
                         </tr>
