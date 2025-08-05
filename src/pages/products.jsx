@@ -1,5 +1,5 @@
 // src/pages/AdminProductsPage.jsx
-import axios from "axios";
+import axios from "../../utils/axiosInstance"
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -26,24 +26,28 @@ export default function AdminProductsPage() {
     }, []);
 
     // Delete a product
-    const deleteProduct = async (productID) => {
-        const confirm = window.confirm("Are you sure you want to delete this product?");
-        if (!confirm) return;
+    const deleteProduct = async (id) => {
+  try {
+    const token = localStorage.getItem('token');
 
-        try {
-            const token = localStorage.getItem('token');
-            const response = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/products/${productID}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            toast.success(response.data.message || "Product deleted successfully");
-            fetchProducts(); // Refresh list
-        } catch (error) {
-            console.error("Delete product error:", error);
-            toast.error(error.response?.data?.message || "Error deleting product");
-        }
-    };
+    if (!token) {
+      alert('No token found. Please login.');
+      return;
+    }
+
+    await axios.delete(import.meta.env.VITE_BACKEND_URL + `/api/products/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    alert('Product deleted successfully');
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    alert('Failed to delete product');
+  }
+};
+
 
     return (
         <div className="w-full h-full rounded-2xl p-4 relative">
