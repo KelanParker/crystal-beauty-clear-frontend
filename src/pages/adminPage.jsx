@@ -1,8 +1,9 @@
 import { FaUsers, FaChartBar, FaCog, FaClipboardList, FaBoxOpen } from "react-icons/fa";
 import { Link, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import AdminProductsPage from "./products";
-import AddProductForm from "./addProduct";
+import AdminProductsPage from "./admin/products";
+import AddProductForm from "./admin/addProduct";
+import EditProductForm from "./admin/editProduct";
 
 
 export default function AdminPage() {
@@ -117,6 +118,7 @@ export default function AdminPage() {
                   <AddProductForm />
                 }
               />
+              <Route path="/products/edit/:id" element={<EditProductForm />} />
             </Routes>
           </div>
         </div>

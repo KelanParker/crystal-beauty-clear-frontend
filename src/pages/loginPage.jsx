@@ -1,21 +1,18 @@
 import { useState } from "react";
 import axios from "../../utils/axiosInstance"
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent form reload on submit
 
     try {
-      console.log("Email:", email);
-      console.log("Password:", password);
-
+      
       const response = await axios.post(
         import.meta.env.VITE_BACKEND_URL + '/api/users/login',
         { email, password }
@@ -70,6 +67,14 @@ export default function LoginPage() {
           >
             Login
           </button>
+          <p classname= "text-gray-600">
+            Don't have an account yet?
+            &nbsp;
+            <span className = "text-green-400 cursor-pointer hover:text-green-600 ">
+              <Link to="/register">Resiter Now</Link>
+              
+            </span>
+          </p>
         </form>
       </div>
     </div>

@@ -1,8 +1,8 @@
-import axios from "../../utils/axiosInstance"
+import axios from "../../../utils/axiosInstance"
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import mediaUpload from "../../utils/mediaUpload";
+import mediaUpload from "../../../utils/mediaUpload";
 
 export default function AddProductForm() {
     const [productID, setProductID] = useState("");
