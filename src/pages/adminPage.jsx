@@ -1,4 +1,5 @@
 import { FaUsers, FaChartBar, FaCog, FaClipboardList, FaBoxOpen } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa6";
 import { Link, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AdminProductsPage from "./admin/products";
@@ -76,7 +77,17 @@ export default function AdminPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-4">
+        <div className="flex-1 p-4 relative">
+          {/* Add Product Button - Shows only on products page */}
+          {location.pathname === "/admin/products" && (
+            <Link
+              to="/admin/addProduct"
+              className="text-white bg-gray-700 p-3 rounded-full text-2xl cursor-pointer hover:bg-gray-300 hover:text-gray-700 absolute bottom-4 right-4 shadow-lg transition-colors duration-200 z-10"
+            >
+              <FaPlus />
+            </Link>
+          )}
+          
           <div className="bg-white rounded-lg shadow-md p-6">
             <Routes>
               <Route

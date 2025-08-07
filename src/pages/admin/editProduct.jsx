@@ -24,6 +24,12 @@ export default function EditProductForm() {
         const fetchProduct = async () => {
             try {
                 const token = localStorage.getItem("token");
+                if (!token) {
+                    toast.error("Unauthorized: Please log in again.");
+                    navigate("/login");
+                    return;
+                }
+
                 const res = await axios.get(
                     `${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`,
                     {
@@ -39,7 +45,7 @@ export default function EditProductForm() {
                 // Pre-fill form fields
                 setProductID(product.productID || product.productId || product._id || "");
                 setName(product.name || "");
-                setAlternativeNames(product.alternativeNames ? product.alternativeNames.join(", ") : "");
+                setAlternativeNames(product.altNames ? product.altNames.join(", ") : "");
                 setPrice(product.price?.toString() || "");
                 setLabeledPrice(product.labeledPrice?.toString() || "");
                 setDescription(product.description || "");
@@ -61,7 +67,7 @@ export default function EditProductForm() {
         if (id) {
             fetchProduct();
         }
-    }, [id]);
+    }, [id, navigate]);
 
     async function handleUpdateProduct() {
         if (!name || !price || !labeledPrice || !stock) {
@@ -94,7 +100,7 @@ export default function EditProductForm() {
         const productData = {
             productID,
             name,
-            alternativeNames: alternativeNames.split(",").map(name => name.trim()),
+            altNames: alternativeNames.split(",").map(name => name.trim()),
             category: "Skin Care",
             brand: "Radiance Haven",
             price: parseFloat(price),
@@ -108,6 +114,12 @@ export default function EditProductForm() {
         };
 
         const token = localStorage.getItem("token");
+        if (!token) {
+            toast.error("Unauthorized: Please log in again.");
+            navigate("/login");
+            return;
+        }
+
         console.log("Updated Product Data:", productData);
 
         try {

@@ -46,7 +46,7 @@ async function handleAddProduct() {
     const productData = {
         productID,
         name,
-        alternativeNames: alternativeNames.split(",").map(name => name.trim()),
+        altNames: alternativeNames.split(",").map(name => name.trim()),
         category: "Skin Care",
         brand: "Radiance Haven",
         price: parseFloat(price),

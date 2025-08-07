@@ -3,7 +3,6 @@ import axios from "../../../utils/axiosInstance"
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa6";
 import { GrEdit } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -92,15 +91,7 @@ export default function AdminProductsPage() {
     };
 
     return (
-        <div className="w-full h-full rounded-2xl p-4 relative">
-            {/* Add Product Button */}
-            <Link
-                to="/admin/addProduct"
-                className="text-white bg-gray-700 p-3 rounded-full text-2xl cursor-pointer hover:bg-gray-300 hover:text-gray-700 absolute bottom-4 right-4 shadow-lg transition-colors duration-200"
-            >
-                <FaPlus />
-            </Link>
-
+        <div className="w-full h-full rounded-2xl p-4">
             {/* Products Table */}
             <table className="w-full table-auto border-collapse shadow-md rounded-lg overflow-hidden">
                 <thead>
