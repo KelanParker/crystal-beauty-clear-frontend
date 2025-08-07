@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Test</title>
+</head>
+<body>
+    <h1>Testing Supabase Configuration</h1>
+    <p>Check the console for any errors...</p>
+    
+    <script type="module">
+        // Test environment variables
+        console.log('Environment Check:');
+        console.log('VITE_SUPABASE_URL exists:', !!import.meta.env.VITE_SUPABASE_URL);
+        console.log('VITE_SUPABASE_ANON_KEY exists:', !!import.meta.env.VITE_SUPABASE_ANON_KEY);
+        
+        try {
+            // Test Supabase import
+            import('./utils/supabaseStorage.js').then(module => {
+                console.log('✓ Supabase storage module loaded successfully');
+                console.log('✓ CRYSTAL_BEAUTY_IMAGES available:', !!module.CRYSTAL_BEAUTY_IMAGES);
+                console.log('Sample hero image:', module.CRYSTAL_BEAUTY_IMAGES.hero.hero1);
+                document.body.innerHTML += '<p style="color: green;">✓ Supabase configuration is working!</p>';
+            }).catch(error => {
+                console.error('✗ Error loading Supabase storage:', error);
+                document.body.innerHTML += `<p style="color: red;">✗ Error: ${error.message}</p>`;
+            });
+        } catch (error) {
+            console.error('✗ Critical error:', error);
+            document.body.innerHTML += `<p style="color: red;">✗ Critical error: ${error.message}</p>`;
+        }
+    </script>
+</body>
+</html>

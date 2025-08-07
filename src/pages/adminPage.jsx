@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import AdminProductsPage from "./admin/products";
 import AddProductForm from "./admin/addProduct";
 import EditProductForm from "./admin/editProduct";
+import { AdminOrdersPage } from "./admin/adminOrders";
 
 
 export default function AdminPage() {
@@ -72,6 +73,15 @@ export default function AdminPage() {
     <FaClipboardList className="mr-3" />
     Reports
   </Link>
+  <Link
+    to="/admin/orders"
+    className={`flex items-center px-6 py-4 ${
+      isActive("/admin/orders") ? "bg-blue-500 text-white" : "text-gray-700 hover:bg-blue-50"
+    } transition-all duration-200`}
+  >
+    <FaBoxOpen className="mr-3" />
+    Orders
+  </Link>
 </nav>
 
         </div>
@@ -109,6 +119,12 @@ export default function AdminPage() {
                 path="/products"
                 element={
                   <AdminProductsPage />
+                }
+              />
+              <Route
+                path="/orders"
+                element={
+                  <AdminOrdersPage />
                 }
               />
               <Route

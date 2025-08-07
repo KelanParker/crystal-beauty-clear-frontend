@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
+import { CRYSTAL_BEAUTY_IMAGES, getImageWithFallback } from '../../../utils/supabaseStorage';
 
 export default function ProductCard(props) {
   const product = props.product;
 
-  // Function to get the first available image
+  // Function to get the first available image - UPDATED TO USE SUPABASE FALLBACKS
+  // Placeholder images stored in: supabase/crystal-beauty-images/placeholders/
   const getProductImage = () => {
     // Check imageUrl field first (this is where your images are stored)
     if (product.imageUrl) {
       // If imageUrl is an array, take the first one
       if (Array.isArray(product.imageUrl) && product.imageUrl.length > 0) {
-        return product.imageUrl[0];
+        return getImageWithFallback(product.imageUrl[0], CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       }
       // If imageUrl is a string
       else if (typeof product.imageUrl === 'string') {
-        return product.imageUrl;
+        return getImageWithFallback(product.imageUrl, CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       }
     }
     
@@ -21,32 +23,33 @@ export default function ProductCard(props) {
     if (product.images && Array.isArray(product.images) && product.images.length > 0) {
       // If images are objects with url property
       if (typeof product.images[0] === 'object' && product.images[0].url) {
-        return product.images[0].url;
+        return getImageWithFallback(product.images[0].url, CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       }
       // If images are objects with path property
       else if (typeof product.images[0] === 'object' && product.images[0].path) {
         const imagePath = product.images[0].path;
-        return imagePath.startsWith('http') 
+        const fullPath = imagePath.startsWith('http') 
           ? imagePath 
           : `${import.meta.env.VITE_BACKEND_URL}/uploads/${imagePath.replace(/^\/+/, '')}`;
+        return getImageWithFallback(fullPath, CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       }
       // If images are direct string URLs
       else if (typeof product.images[0] === 'string') {
-        return product.images[0];
+        return getImageWithFallback(product.images[0], CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       }
     }
     
     // Check single image field
     if (product.image) {
       if (typeof product.image === 'object' && product.image.url) {
-        return product.image.url;
+        return getImageWithFallback(product.image.url, CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       } else if (typeof product.image === 'string') {
-        return product.image;
+        return getImageWithFallback(product.image, CRYSTAL_BEAUTY_IMAGES.placeholders.product);
       }
     }
     
-    // Fallback to a default image
-    return 'https://via.placeholder.com/300x200?text=No+Image';
+    // Fallback to Supabase placeholder image
+    return CRYSTAL_BEAUTY_IMAGES.placeholders.product;
   };
 
   return (

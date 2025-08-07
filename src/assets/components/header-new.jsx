@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { BsSearch, BsCart3, BsPersonCircle, BsGear, BsBoxArrowRight, BsPerson, BsShield, BsImage } from "react-icons/bs";
+import { BsSearch, BsCart3, BsPersonCircle, BsGear, BsBoxArrowRight, BsPerson, BsShield, BsImage, BsBell } from "react-icons/bs";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { IoMenu, IoClose } from "react-icons/io5";
 import { FaUser, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import getCart from "../../../utils/cart";
 import { CRYSTAL_BEAUTY_IMAGES } from "../../../utils/supabaseStorage";
@@ -13,6 +14,7 @@ export default function Header() {
   const [currentUser, setCurrentUser] = useState(null);
   const [cartItemCount, setCartItemCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [notifications, setNotifications] = useState([]);
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -243,7 +245,7 @@ export default function Header() {
 
               {/* User Dropdown Menu */}
               {isUserDropdownOpen && currentUser && (
-                <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50">
+                <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 animate-in slide-in-from-top-2 duration-200">
                   
                   {/* User Info Header */}
                   <div className="px-4 py-3 border-b border-gray-100">
@@ -336,7 +338,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-pink-100">
+          <div className="md:hidden bg-white border-t border-pink-100 animate-in slide-in-from-top-2 duration-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Link
