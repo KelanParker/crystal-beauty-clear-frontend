@@ -38,10 +38,14 @@ export default function RegisterPage() {
   const userData = { firstName, lastName, email, password, phone, role };
 
   try {
-    await axios.post(
-      import.meta.env.VITE_BACKEND_URL + "/api/users/",
-      userData
-    );
+    console.log('Sending registration request to:', import.meta.env.VITE_BACKEND_URL + '/api/users');
+    console.log('Registration data:', userData);
+    
+    await axios.post('/api/users', userData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
 
     toast.success("Registration successful!");
     navigate("/login");
@@ -126,7 +130,7 @@ export default function RegisterPage() {
           >
             Register
           </button>
-          <p className="text-gray-600 mt-2">
+          <p className="mt-2 text-gray-600">
             Already have an account?&nbsp;
             <span className="text-green-400 cursor-pointer hover:text-green-600">
               <Link to="/login">Login</Link>

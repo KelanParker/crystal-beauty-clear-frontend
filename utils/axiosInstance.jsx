@@ -7,9 +7,16 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    // Skip auth header for registration and login endpoints only
+    const isRegisterOrLogin = config.url === '/api/users' || 
+                              config.url === '/api/users/login' || 
+                              config.url?.includes('/api/auth/');
+    
+    if (!isRegisterOrLogin) {
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
     return config;
   },

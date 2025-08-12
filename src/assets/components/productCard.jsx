@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CRYSTAL_BEAUTY_IMAGES, getOptimizedImageUrl, buildSrcSet } from '../../../utils/supabaseStorage';
 
 export default function ProductCard(props) {
   const product = props.product;
@@ -51,11 +52,18 @@ export default function ProductCard(props) {
 
   return (
     <Link to={`/overview/${product.productID}`} className="w-[300px] h-[450px] p-3 shadow-lg rounded-lg bg-white hover:shadow-2xl transition-shadow duration-300">
-      <img 
-        src={getProductImage()}
-        alt={product.name}
-        className="w-full h-[260px] object-cover mb-2 rounded-lg"
-      />
+      {/* Image wrapper to clip bottom overlays and maintain consistent crop */}
+      <div className="w-full h-[260px] overflow-hidden rounded-lg">
+        <img 
+          src={getOptimizedImageUrl(getProductImage(), { width: 480, height: 260, quality: 70 })}
+          srcSet={buildSrcSet(getProductImage(), [240, 360, 480, 720], { quality: 60 })}
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 300px"
+          alt={product.name}
+          loading="lazy"
+          className="w-full h-full object-cover object-top"
+          draggable={false}
+        />
+      </div>
       <h6 className="text-xs text-gray-500">{product.category}</h6>
       <h6 className="text-xs text-gray-500">{product.productID}</h6>
       <h3 className="text-lg font-semibold">{product.name}</h3>

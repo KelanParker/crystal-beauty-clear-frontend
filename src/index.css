@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* Fix: remove inline image baseline gap that can look like a bar under images */
+img {
+	display: block;
+}
