@@ -14,7 +14,6 @@ export default function Header() {
   const [currentUser, setCurrentUser] = useState(null);
   const [cartItemCount, setCartItemCount] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [notifications, setNotifications] = useState([]);
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -144,7 +143,7 @@ export default function Header() {
                 className="h-10 w-auto transition-transform group-hover:scale-105"
               />
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-xl font-bold bg-gradient-to-r from-pink-600 to-amber-500 bg-clip-text text-transparent">
                   Crystal Beauty Clear
                 </h1>
                 <p className="text-xs text-gray-500">Professional Skincare</p>
@@ -158,14 +157,14 @@ export default function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 group ${
+        className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 group rounded-full ${
                   location.pathname === item.href
-                    ? 'text-pink-600'
-                    : 'text-gray-700 hover:text-pink-600'
+          ? 'text-pink-600'
+          : 'text-gray-700 hover:text-pink-600 hover:bg-pink-50'
                 }`}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-pink-600 to-purple-600 transform transition-transform duration-200 ${
+        <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-pink-600 to-amber-400 transform transition-transform duration-200 ${
                   location.pathname === item.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                 }`}></span>
               </Link>

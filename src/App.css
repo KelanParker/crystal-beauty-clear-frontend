@@ -522,10 +522,14 @@ body::before {
 .product-card img {
   transition: var(--transition-smooth);
   object-fit: cover;
+  /* Ensure consistent cropping and a slight default zoom for better fit */
+  object-position: center center;
+  transform: scale(1.02);
 }
 
 .product-card:hover img {
-  transform: scale(1.05);
+  /* Slightly stronger zoom on hover */
+  transform: scale(1.06);
 }
 
 /* Interactive Image Overlays */
@@ -542,21 +546,22 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(236, 72, 153, 0.8), 
-    rgba(139, 92, 246, 0.8)
-  );
+  /* Remove dark/gradient overlay */
+  background: transparent;
   opacity: 0;
   transition: var(--transition-smooth);
   z-index: 2;
 }
 
 .image-overlay:hover::before {
-  opacity: 1;
+  /* Keep overlay disabled on hover */
+  opacity: 0;
 }
 
 .image-overlay img {
   transition: var(--transition-smooth);
+  /* Slightly bias towards center for better composition */
+  object-position: center center;
 }
 
 .image-overlay:hover img {

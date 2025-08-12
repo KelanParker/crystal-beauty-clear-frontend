@@ -252,7 +252,7 @@ export default function DeveloperPanel() {
                         <div className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                           {Object.entries(CRYSTAL_BEAUTY_IMAGES[selectedCategory]).map(([key, url]) => {
                             const editKey = `${selectedCategory}.${key}`;
-                            const isEditing = editingUrls.hasOwnProperty(editKey);
+                            const isEditing = Object.prototype.hasOwnProperty.call(editingUrls, editKey);
                             
                             return (
                               <div key={key} className="bg-black/30 rounded-lg border border-white/10 p-4">

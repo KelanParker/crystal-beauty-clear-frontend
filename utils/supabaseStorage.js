@@ -216,3 +216,49 @@ export default {
   getImageWithFallback,
   CRYSTAL_BEAUTY_IMAGES
 };
+
+// ---------------- Image Optimization Helpers ----------------
+const isSupabaseUrl = (url) => typeof url === 'string' && url.includes('.supabase.co') && url.includes('/object/public/');
+const isUnsplashUrl = (url) => typeof url === 'string' && url.includes('images.unsplash.com');
+
+/**
+ * Build an optimized image URL using provider params when possible.
+ * - Supabase: appends width/height/quality params (if supported by storage transform)
+ * - Unsplash: appends w/h/fit/crop and q params
+ */
+export const getOptimizedImageUrl = (url, { width, height, quality = 70, fit = 'cover' } = {}) => {
+  if (!url) return url;
+  try {
+    const u = new URL(url);
+    if (isUnsplashUrl(url)) {
+      if (width) u.searchParams.set('w', String(width));
+      if (height) u.searchParams.set('h', String(height));
+      u.searchParams.set('fit', 'crop');
+      u.searchParams.set('crop', 'center');
+      u.searchParams.set('q', String(quality));
+      return u.toString();
+    }
+    if (isSupabaseUrl(url)) {
+      if (width) u.searchParams.set('width', String(width));
+      if (height) u.searchParams.set('height', String(height));
+      u.searchParams.set('quality', String(quality));
+      u.searchParams.set('resize', fit);
+      return u.toString();
+    }
+    return url;
+  } catch {
+    return url;
+  }
+};
+
+/** Build a srcset string for the given widths */
+export const buildSrcSet = (url, widths = [], { quality = 70 } = {}) => {
+  if (!url || !Array.isArray(widths) || widths.length === 0) return undefined;
+  const set = widths
+    .sort((a,b) => a-b)
+    .map(w => `${getOptimizedImageUrl(url, { width: w, quality })} ${w}w`)
+    .join(', ');
+  return set;
+};
+
+export { isSupabaseUrl, isUnsplashUrl };

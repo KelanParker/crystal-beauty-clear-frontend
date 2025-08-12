@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCurrentUser, updateUserProfile, clearAuth } from '../../utils/auth';
+import { getCurrentUser, updateUserProfile } from '../../utils/auth';
 import { BsPersonFill, BsGearFill, BsShieldFill, BsBellFill, BsCreditCardFill, BsEyeFill, BsEyeSlashFill, BsCheckCircle, BsCamera } from 'react-icons/bs';
 import { FaEdit, FaSave, FaTimes } from 'react-icons/fa';
 

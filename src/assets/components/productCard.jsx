@@ -4,6 +4,11 @@ import { CRYSTAL_BEAUTY_IMAGES, getImageWithFallback } from '../../../utils/supa
 export default function ProductCard(props) {
   const product = props.product;
 
+  const formatLKR = (value) => {
+    const num = Number(value);
+    return isFinite(num) ? `LKR ${num.toFixed(2)}` : `LKR ${value}`;
+  };
+
   // Function to get the first available image - UPDATED TO USE SUPABASE FALLBACKS
   // Placeholder images stored in: supabase/crystal-beauty-images/placeholders/
   const getProductImage = () => {
@@ -63,9 +68,9 @@ export default function ProductCard(props) {
       <h6 className="text-xs text-gray-500">{product.productID}</h6>
       <h3 className="text-lg font-semibold">{product.name}</h3>
       <div className="mt-2">
-        <span className="text-xl font-bold text-pink-600">${product.price}</span>
+        <span className="text-xl font-bold text-pink-600">{formatLKR(product.price)}</span>
         {product.labeledPrice && product.labeledPrice > product.price && (
-          <span className="text-gray-400 line-through ml-2">${product.labeledPrice}</span>
+          <span className="text-gray-400 line-through ml-2">{formatLKR(product.labeledPrice)}</span>
         )}
       </div>
       <button className="w-full bg-pink-500 text-white py-2 px-4 rounded mt-2 hover:bg-pink-600">

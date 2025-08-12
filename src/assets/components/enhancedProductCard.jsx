@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaHeart, FaShoppingCart, FaEye } from 'react-icons/fa';
-import { CRYSTAL_BEAUTY_IMAGES, getImageWithFallback } from '../../../utils/supabaseStorage';
+import { CRYSTAL_BEAUTY_IMAGES, getImageWithFallback, getOptimizedImageUrl, buildSrcSet } from '../../../utils/supabaseStorage';
 
 export default function EnhancedProductCard({ product }) {
     const [isWishlisted, setIsWishlisted] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(false);
+
+    const formatLKR = (value) => {
+        const num = Number(value);
+        return isFinite(num) ? `LKR ${num.toFixed(2)}` : `LKR ${value}`;
+    };
 
     // Enhanced image getter with fallbacks
     const getProductImage = () => {
@@ -73,12 +78,15 @@ export default function EnhancedProductCard({ product }) {
                     <div className="skeleton w-full h-64 absolute inset-0 z-10"></div>
                 )}
                 <img
-                    src={getProductImage()}
+                    src={getOptimizedImageUrl(getProductImage(), { width: 480, height: 480, quality: 70 })}
+                    srcSet={buildSrcSet(getProductImage(), [240, 360, 480, 720, 960], { quality: 60 })}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
                     alt={product.name}
-                    className={`w-full h-64 object-cover transition-all duration-500 ${
+                    className={`w-full h-64 object-cover object-top transition-all duration-500 ${
                         imageLoaded ? 'opacity-100' : 'opacity-0'
                     }`}
                     onLoad={() => setImageLoaded(true)}
+                    loading="lazy"
                 />
                 
                 {/* Discount Badge */}
@@ -100,19 +108,19 @@ export default function EnhancedProductCard({ product }) {
                     <FaHeart className={`transition-transform ${isWishlisted ? 'scale-110' : ''}`} />
                 </button>
 
-                {/* Hover Overlay with Actions */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                {/* Hover Actions (no dark overlay) */}
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-4">
                         <Link
                             to={`/overview/${product.productID || product.id}`}
-                            className="btn-glass text-white hover:bg-white hover:text-gray-800"
+                            className="btn-glass text-white hover:bg-white hover:text-gray-800 pointer-events-auto"
                         >
                             <FaEye />
                             Quick View
                         </Link>
                         <button
                             onClick={handleAddToCart}
-                            className="btn-glass text-white hover:bg-white hover:text-gray-800"
+                            className="btn-glass text-white hover:bg-white hover:text-gray-800 pointer-events-auto"
                         >
                             <FaShoppingCart />
                             Add to Cart
@@ -153,11 +161,11 @@ export default function EnhancedProductCard({ product }) {
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                         <span className="text-2xl font-bold text-gradient">
-                            LKR {product.price || '$' + product.price}
+                            {formatLKR(product.price)}
                         </span>
                         {product.labeledPrice && product.labeledPrice > product.price && (
                             <span className="text-sm text-gray-500 line-through">
-                                LKR {product.labeledPrice || '$' + product.labeledPrice}
+                                {formatLKR(product.labeledPrice)}
                             </span>
                         )}
                     </div>

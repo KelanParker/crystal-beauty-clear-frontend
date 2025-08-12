@@ -70,7 +70,7 @@ export default function EnhancedLoginPage() {
         setCurrentUser(newUser);
         navigate('/');
       }
-    } catch (error) {
+  } catch {
       setError('An error occurred. Please try again.');
     }
     
