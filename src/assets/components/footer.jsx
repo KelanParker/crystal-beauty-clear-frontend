@@ -72,7 +72,7 @@ export default function Footer() {
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl font-bold text-pink-400 mb-4">
-                Crystal Beauty Clear
+                ELIORE
               </h2>
               <p className="text-gray-300 leading-relaxed">
                 Your trusted partner in beauty and skincare. We bring you the finest 
@@ -177,7 +177,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} Crystal Beauty Clear. All rights reserved.
+              © {currentYear} ELIORE. All rights reserved.
             </div>
             
             <div className="flex space-x-6 text-sm text-gray-400">

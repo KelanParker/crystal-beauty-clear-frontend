@@ -164,7 +164,7 @@ export default function EnhancedLoginPage() {
           <img
             className="mx-auto h-16 w-auto"
             src={CRYSTAL_BEAUTY_IMAGES.branding.logo}
-            alt="Crystal Beauty Clear"
+            alt="ELIORE"
           />
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
             {isLogin ? 'Welcome back' : 'Create your account'}

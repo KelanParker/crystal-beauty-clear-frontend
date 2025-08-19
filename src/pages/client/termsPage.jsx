@@ -2,11 +2,11 @@ export default function TermsPage() {
     const sections = [
         {
             title: "Acceptance of Terms",
-            content: "By accessing and using the Crystal Beauty Clear website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service. These terms apply to all visitors, users, and others who access or use the service."
+            content: "By accessing and using the ELIORE website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service. These terms apply to all visitors, users, and others who access or use the service."
         },
         {
             title: "Description of Service",
-            content: "Crystal Beauty Clear provides an online platform for purchasing cosmetics, skincare products, and beauty accessories. Our service includes product browsing, online ordering, payment processing, delivery services, customer support, and related beauty consultation services. We reserve the right to modify or discontinue any aspect of our service at any time."
+            content: "ELIORE provides an online platform for purchasing cosmetics, skincare products, and beauty accessories. Our service includes product browsing, online ordering, payment processing, delivery services, customer support, and related beauty consultation services. We reserve the right to modify or discontinue any aspect of our service at any time."
         },
         {
             title: "User Accounts",
@@ -18,7 +18,7 @@ export default function TermsPage() {
         },
         {
             title: "Order Acceptance and Payment",
-            content: "All orders are subject to acceptance by Crystal Beauty Clear. We reserve the right to refuse or cancel any order for any reason, including but not limited to product availability, errors in product or pricing information, or suspected fraudulent activity. Payment must be received before orders are processed and shipped. We accept various payment methods as displayed at checkout."
+            content: "All orders are subject to acceptance by ELIORE. We reserve the right to refuse or cancel any order for any reason, including but not limited to product availability, errors in product or pricing information, or suspected fraudulent activity. Payment must be received before orders are processed and shipped. We accept various payment methods as displayed at checkout."
         },
         {
             title: "Shipping and Delivery",
@@ -34,7 +34,7 @@ export default function TermsPage() {
         },
         {
             title: "Intellectual Property Rights",
-            content: "The service and its original content, features, and functionality are and will remain the exclusive property of Crystal Beauty Clear and its licensors. The service is protected by copyright, trademark, and other laws. Our trademarks and trade dress may not be used in connection with any product or service without our prior written consent."
+            content: "The service and its original content, features, and functionality are and will remain the exclusive property of ELIORE and its licensors. The service is protected by copyright, trademark, and other laws. Our trademarks and trade dress may not be used in connection with any product or service without our prior written consent."
         },
         {
             title: "User-Generated Content",
@@ -50,11 +50,11 @@ export default function TermsPage() {
         },
         {
             title: "Limitation of Liability",
-            content: "In no event shall Crystal Beauty Clear, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the service."
+            content: "In no event shall ELIORE, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the service."
         },
         {
             title: "Indemnification",
-            content: "You agree to defend, indemnify, and hold harmless Crystal Beauty Clear and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees)."
+            content: "You agree to defend, indemnify, and hold harmless ELIORE and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees)."
         },
         {
             title: "Termination",
@@ -74,7 +74,7 @@ export default function TermsPage() {
         },
         {
             title: "Contact Information",
-            content: "If you have any questions about these Terms of Service, please contact us at legal@crystalbeautyclear.lk or call us at +94 11 234 5678. You may also write to us at Crystal Beauty Clear, 123 Beauty Street, Colombo 03, Sri Lanka."
+            content: "If you have any questions about these Terms of Service, please contact us at legal@crystalbeautyclear.lk or call us at +94 11 234 5678. You may also write to us at ELIORE, 123 Beauty Street, Colombo 03, Sri Lanka."
         }
     ];
 
@@ -88,7 +88,7 @@ export default function TermsPage() {
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Please read these terms and conditions carefully before using our website and services. 
-                        These terms govern your use of Crystal Beauty Clear's platform and services.
+                        These terms govern your use of ELIORE's platform and services.
                     </p>
                     <div className="mt-6 text-sm text-gray-500">
                         Last updated: January 2024
@@ -105,7 +105,7 @@ export default function TermsPage() {
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
                             These Terms of Service ("Terms") constitute a legally binding agreement between you 
-                            and Crystal Beauty Clear ("Company", "we", "us", or "our") concerning your use of 
+                            and ELIORE ("Company", "we", "us", or "our") concerning your use of 
                             our website, mobile application, and services (collectively, the "Service").
                         </p>
                         <p className="text-gray-600 leading-relaxed mt-4">
@@ -151,7 +151,7 @@ export default function TermsPage() {
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
                             These Terms of Service have been created with the help of legal professionals and 
-                            are designed to protect both Crystal Beauty Clear and our customers. We recommend 
+                            are designed to protect both ELIORE and our customers. We recommend 
                             that you save or print a copy of these terms for your records. If you have any 
                             questions about these terms, please contact our legal team.
                         </p>

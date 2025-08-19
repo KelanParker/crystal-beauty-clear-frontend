@@ -35,7 +35,7 @@ export default function AboutPage() {
         {
             year: "2020",
             title: "Founded",
-            description: "Crystal Beauty Clear was established with a vision to make quality cosmetics accessible to everyone."
+            description: "ELIORE was established with a vision to make quality cosmetics accessible to everyone."
         },
         {
             year: "2021",
@@ -94,7 +94,7 @@ export default function AboutPage() {
             <section className="relative py-20 bg-gradient-to-r from-pink-100 to-purple-100">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-6">
-                        About Crystal Beauty Clear
+                        About ELIORE
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         We're passionate about helping you discover your unique beauty through high-quality, 
@@ -113,7 +113,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
-                                    Crystal Beauty Clear was born from a simple belief: everyone deserves to feel confident 
+                                    ELIORE was born from a simple belief: everyone deserves to feel confident 
                                     and beautiful in their own skin. Founded in 2020, we started as a small team of beauty 
                                     enthusiasts who noticed a gap in the Sri Lankan market for high-quality, affordable cosmetics.
                                 </p>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                             Meet Our Team
                         </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            The passionate people behind Crystal Beauty Clear
+                            The passionate people behind ELIORE
                         </p>
                     </div>
 

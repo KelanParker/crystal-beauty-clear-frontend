@@ -138,12 +138,12 @@ export default function Header() {
             <Link to="/" className="flex items-center space-x-3 group">
               <img 
                 src={CRYSTAL_BEAUTY_IMAGES.branding.logo} 
-                alt="Crystal Beauty Clear" 
+                alt="ELIORE" 
                 className="h-10 w-auto transition-transform group-hover:scale-105"
               />
               <div className="hidden sm:block">
                 <h1 className="text-xl font-bold bg-gradient-to-r from-pink-600 to-amber-500 bg-clip-text text-transparent">
-                  Crystal Beauty Clear
+                  ELIORE
                 </h1>
                 <p className="text-xs text-gray-500">Professional Skincare</p>
               </div>

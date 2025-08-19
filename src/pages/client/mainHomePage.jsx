@@ -234,7 +234,7 @@ export default function MainHomePage() {
             <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-center text-gradient mb-16 animate-on-scroll">
-                        Why Choose Crystal Beauty Clear?
+                        Why Choose ELIORE?
                     </h2>
                     <div className="grid-modern">
                         {benefits.map((benefit, index) => (

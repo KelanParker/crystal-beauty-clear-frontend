@@ -1,4 +1,4 @@
-// Image Upload Utility for Crystal Beauty Clear Admin
+// Image Upload Utility for ELIORE Admin
 // This component helps admin users upload images to Supabase storage
 
 import { useState } from 'react';
@@ -76,7 +76,7 @@ export default function ImageUploadManager() {
     return (
         <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                📸 Crystal Beauty Clear - Image Upload Manager
+                📸 ELIORE - Image Upload Manager
             </h2>
             
             {/* Folder Selection */}

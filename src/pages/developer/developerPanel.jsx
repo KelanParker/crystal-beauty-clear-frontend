@@ -394,7 +394,7 @@ export default function DeveloperPanel() {
                           <label className="block text-sm font-medium mb-2">Site Title</label>
                           <input
                             type="text"
-                            defaultValue="Crystal Beauty Clear"
+                            defaultValue="ELIORE"
                             className="w-full px-4 py-2 bg-black/50 border border-white/20 rounded-lg text-white"
                           />
                         </div>

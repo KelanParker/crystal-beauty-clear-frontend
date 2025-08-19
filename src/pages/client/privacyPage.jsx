@@ -135,10 +135,10 @@ export default function PrivacyPage() {
                 <div className="container mx-auto px-4 max-w-4xl">
                     <div className="bg-pink-50 p-8 rounded-2xl mb-12">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                            Welcome to Crystal Beauty Clear
+                            Welcome to ELIORE
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
-                            At Crystal Beauty Clear, we are committed to protecting your privacy and ensuring 
+                            At ELIORE, we are committed to protecting your privacy and ensuring 
                             the security of your personal information. This Privacy Policy describes our 
                             practices regarding the collection, use, and sharing of information when you 
                             visit our website, make purchases, or interact with our services.
